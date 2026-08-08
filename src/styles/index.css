@@ -1,0 +1,202 @@
+/*
+BASE STYLESHEET
+*/
+:root {
+  /* Base brand colors */
+  --bg: rgb(20, 20, 20);
+  --bg-void: rgb(0, 0, 0);
+  --text: rgb(237, 237, 240);
+  --text-dim: rgb(132, 20, 20);
+
+  /* Accent color and variations */
+  --accent: rgb(140, 82, 254);
+  --accent-soft: rgb(159, 135, 208);
+  --accent-glow: rgb(140, 82, 254);
+
+  /* Spacing scale */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+/*
+STRUCTURE STYLING: Layout and positioning of major sections
+*/
+
+.site-header {
+  position: fixed;
+  top: var(--space-2);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: fit-content;
+}
+
+main {
+  padding-top: 80px; /* offsets fixed header height */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(14px);
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.start,
+.showcase,
+.site-footer {
+  width: 100%;
+  padding: var(--space-5) var(--space-3);
+}
+
+.start-inner,
+.showcase-inner,
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.start-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-3);
+}
+
+.section {
+  width: 100%;
+  padding: var(--space-5) var(--space-3);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* SECTION COMPONENT */
+.section-default {
+  background: var(--bg);
+}
+
+.section-void {
+  background: var(--bg-void);
+}
+
+.section-title {
+  font-size: clamp(24px, 4vw, 40px);
+  margin-bottom: var(--space-2);
+}
+
+.section-body {
+  color: var(--text);
+  max-width: 640px;
+}
+
+.showcase-grid {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/*
+EFFECTS: Hover, focus, interactive states
+*/
+
+a,
+button {
+  color: var(--text);
+  transition: color 0.2s ease, filter 0.2s ease;
+}
+
+a:hover,
+button:hover {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.glow-on-hover:hover {
+  filter: drop-shadow(0 0 12px var(--accent-glow));
+}
+
+@keyframes nav-logo-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px var(--accent));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px var(--accent));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-logo {
+    animation: none;
+    filter: drop-shadow(0 0 10px var(--accent));
+  }
+}
+
+
+/*
+ASSETS: Images, icons, media assets styling
+*/
+
+.start-logo {
+  width: clamp(120px, 20vw, 280px);
+  height: auto;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  animation: nav-logo-pulse 3s ease-in-out infinite;
+}
+
+/* Customizing navigation logo's glow pulse effect */
+@keyframes nav-logo-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px var(--accent-soft)) brightness(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px var(--accent-glow)) brightness(1.4);
+  }
+}
+
+.showcase-item {
+  width: clamp(160px, 25vw, 280px);
+  aspect-ratio: 4 / 3;
+  background: rgba(140, 82, 254, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--text-dim);
+}
