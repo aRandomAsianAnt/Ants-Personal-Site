@@ -192,7 +192,7 @@ ASSETS: Images, icons, media assets styling
   width: clamp(120px, 60vw, 600px);
   height: auto;
   opacity: 0;
-  animation: ignite 3.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  animation: ignite 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
 .nav-logo {

@@ -2,7 +2,7 @@
 import logo from './assets/X_WHITE.png';
 import AQ from './assets/AQ_STROKE.png';
 import Button from './components/Button';
-import './components/button.css';
+import './components/Button.css';
 import Section from './components/Section';
 
 // Page list for navigation bar
