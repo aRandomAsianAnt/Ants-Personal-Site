@@ -22,7 +22,7 @@ export default function App() {
         <nav className="nav" aria-label="Primary">
           <div className="nav-buttons nav-buttons-left">
             {pages.slice(0, Math.ceil(pages.length / 2)).map((p) => (
-              <Buttons key={p.href} href={p.href}>{p.label}</Buttons>
+              <Button key={p.href} href={p.href}>{p.label}</Button>
             ))}
           </div>
 
@@ -30,7 +30,7 @@ export default function App() {
 
           <div className="nav-buttons nav-buttons-right">
             {pages.slice(Math.ceil(pages.length / 2)).map((p) => (
-              <Buttons key={p.href} href={p.href}>{p.label}</Buttons>
+              <Button key={p.href} href={p.href}>{p.label}</Button>
             ))}
           </div>
         </nav>

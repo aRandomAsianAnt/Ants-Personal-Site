@@ -6,7 +6,7 @@ BASE STYLESHEET
   --bg: rgb(20, 20, 20);
   --bg-void: rgb(0, 0, 0);
   --text: rgb(237, 237, 240);
-  --text-dim: rgb(132, 20, 20);
+  --text-dim: var(--accent);
 
   /* Accent color and variations */
   --accent: rgb(140, 82, 254);
@@ -14,11 +14,11 @@ BASE STYLESHEET
   --accent-glow: rgb(140, 82, 254);
 
   /* Spacing scale */
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 40px;
-  --space-5: 64px;
+  --space8: 8px;
+  --space16: 16px;
+  --space24: 24px;
+  --space40: 40px;
+  --space64: 64px;
 }
 
 body {
@@ -33,7 +33,7 @@ STRUCTURE STYLING: Layout and positioning of major sections
 
 .site-header {
   position: fixed;
-  top: var(--space-2);
+  top: var(--space16);
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -48,8 +48,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3);
-  padding: var(--space-1) var(--space-2);
+  gap: var(--space24);
+  padding: var(--space8) var(--space16);
   border-radius: 999px;
   background: rgba(20, 20, 20, 0.6);
   backdrop-filter: blur(14px);
@@ -58,14 +58,14 @@ main {
 .nav-buttons {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space8);
 }
 
 .start,
 .showcase,
 .site-footer {
   width: 100%;
-  padding: var(--space-5) var(--space-3);
+  padding: var(--space64) var(--space24);
 }
 
 .start-inner,
@@ -81,12 +81,12 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: var(--space-3);
+  gap: var(--space24);
 }
 
 .section {
   width: 100%;
-  padding: var(--space-5) var(--space-3);
+  padding: var(--space64) var(--space24);
 }
 
 .section-inner {
@@ -105,7 +105,7 @@ main {
 
 .section-title {
   font-size: clamp(24px, 4vw, 40px);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space16);
 }
 
 .section-body {
@@ -115,7 +115,7 @@ main {
 
 .showcase-grid {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space24);
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -146,6 +146,27 @@ button:focus-visible {
   filter: drop-shadow(0 0 12px var(--accent-glow));
 }
 
+@keyframes ignite {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 0px rgba(140, 82, 254, 0));
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 46px var(--accent-glow));
+  }
+  70% {
+    filter: drop-shadow(0 0 18px var(--accent-soft));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 26px var(--accent-soft));
+  }
+}
+
 @keyframes nav-logo-pulse {
   0%, 100% {
     filter: drop-shadow(0 0 6px var(--accent));
@@ -168,8 +189,10 @@ ASSETS: Images, icons, media assets styling
 */
 
 .start-logo {
-  width: clamp(120px, 20vw, 280px);
+  width: clamp(120px, 60vw, 600px);
   height: auto;
+  opacity: 0;
+  animation: ignite 3.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
 .nav-logo {
@@ -190,8 +213,8 @@ ASSETS: Images, icons, media assets styling
 }
 
 .showcase-item {
-  width: clamp(160px, 25vw, 280px);
-  aspect-ratio: 4 / 3;
+  width: clamp(160px, 20vw, 500px);
+  aspect-ratio: 4 / 5;
   background: rgba(140, 82, 254, 0.08);
   border-radius: 12px;
   display: flex;
