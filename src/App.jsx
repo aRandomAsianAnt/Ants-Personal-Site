@@ -1,23 +1,29 @@
-// src/App.jsx
+//----ASSETS
 import logo from './assets/X_WHITE.png';
 import AQ from './assets/AQ_STROKE.png';
+import purpShape from './assets/purple_shape_fx.png';
+import bgImage from './assets/antPurpleBG.png'
+
+//----COMPONENTS
 import Button from './components/Button';
 import './components/Button.css';
 import Section from './components/Section';
 
-// Page list for navigation bar
+//----PAGE LINKS VIA REACT ROUTER
 const pages = [
   { label: 'Academics', href: '/academics' },
   { label: 'Education', href: '/education' },
   { label: 'Resume', href: '/resume' },
   { label: 'Hobbies', href: '/hobbies' },
-  { label: 'Design', href: '/design' },
+  { label: 'Graphics', href: '/design' },
   { label: 'Projects', href: '/projects' },
 ];
 
 export default function App() {
   return (
     <>
+    <div className="site-bg" aria-hidden="true" style={{ backgroundImage: `url(${bgImage})` }} />
+    <header className="site-content">
       <header className="site-header">
         <nav className="nav" aria-label="Primary">
           <div className="nav-buttons nav-buttons-left">
@@ -39,7 +45,10 @@ export default function App() {
       <main id="main">
         <Section id="start" label="Introduction">
           <div className="start-inner">
-            <img src={logo} alt="Antony Quach" className="start-logo" />
+            <div className="intro-stack">
+              <img src={purpShape} alt="" className="intro-layer purpleRay" />
+              <img src={logo} alt="" className="intro-layer start-logo" />
+            </div>
             <h1 className="start-title">Antony Quach</h1>
             <p className="start-tagline">Greetings, visitors...</p>
           </div>
@@ -74,6 +83,7 @@ export default function App() {
           <p>Contact placeholder</p>
         </div>
       </footer>
+    </header>
     </>
   );
 }
