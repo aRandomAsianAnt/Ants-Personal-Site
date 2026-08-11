@@ -1,0 +1,10 @@
+.star-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 300vh;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}

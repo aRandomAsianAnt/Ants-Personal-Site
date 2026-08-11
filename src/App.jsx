@@ -45,8 +45,8 @@ export default function App() {
       <main id="main">
         <Section id="start" label="Introduction">
           <div className="start-inner">
+            <img src={purpShape} alt="" className="intro-layer purpleRay" />
             <div className="intro-stack">
-              <img src={purpShape} alt="" className="intro-layer purpleRay" />
               <img src={logo} alt="" className="intro-layer start-logo" />
             </div>
             <h1 className="start-title">Antony Quach</h1>

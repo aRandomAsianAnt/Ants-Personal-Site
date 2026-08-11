@@ -24,6 +24,10 @@ BASE STYLESHEET
 html,body {
   background: var(--bg);
   margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
   color: var(--text);
   position: relative; /* gives z-index on children a stacking context to sit against */
 }
@@ -103,12 +107,7 @@ main {
   padding: var(--space64) var(--space24);
 }
 
-.start-inner,
-.showcase-inner,
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
 
 .start-inner {
   display: flex;
@@ -116,7 +115,6 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: var(--space24);
 }
 
 .section {
@@ -255,10 +253,11 @@ ASSETS: Images, icons, media assets styling
   color: var(--text-dim);
 }
 
-.intro-layer.purpleRay {
+.purpleRay {
   z-index: 2;
   position: absolute;
-  object-fit: 100%;
+  left: 0;
+  right: 0;
   mix-blend-mode: screen;
   
 }
