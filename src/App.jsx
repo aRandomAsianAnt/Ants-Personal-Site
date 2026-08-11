@@ -6,8 +6,8 @@ import bgImage from './assets/antPurpleBG.png'
 
 //----COMPONENTS
 import Button from './components/Button';
-import './components/Button.css';
-import Section from './components/Section';
+import WorldSection from './components/WorldSection';
+import LoadingIntro from './components/LoadingIntro';
 
 //----PAGE LINKS VIA REACT ROUTER
 const pages = [
@@ -22,68 +22,32 @@ const pages = [
 export default function App() {
   return (
     <>
-    <div className="site-bg" aria-hidden="true" style={{ backgroundImage: `url(${bgImage})` }} />
-    <header className="site-content">
-      <header className="site-header">
-        <nav className="nav" aria-label="Primary">
-          <div className="nav-buttons nav-buttons-left">
-            {pages.slice(0, Math.ceil(pages.length / 2)).map((p) => (
-              <Button key={p.href} href={p.href}>{p.label}</Button>
-            ))}
-          </div>
+      {/*----LOADING SCENE: Cinematic reveal effect----*/}
+      <LoadingIntro/>
 
-          <img src={AQ} alt="Antony Quach" className="nav-logo" />
+      {/*----Hero section: Logo, tagline, first impressions----*/}
+      <WorldSection id="hero" label="Hero Section">
 
-          <div className="nav-buttons nav-buttons-right">
-            {pages.slice(Math.ceil(pages.length / 2)).map((p) => (
-              <Button key={p.href} href={p.href}>{p.label}</Button>
-            ))}
-          </div>
-        </nav>
-      </header>
+      </WorldSection>
 
-      <main id="main">
-        <Section id="start" label="Introduction">
-          <div className="start-inner">
-            <img src={purpShape} alt="" className="intro-layer purpleRay" />
-            <div className="intro-stack">
-              <img src={logo} alt="" className="intro-layer start-logo" />
-            </div>
-            <h1 className="start-title">Antony Quach</h1>
-            <p className="start-tagline">Greetings, visitors...</p>
-          </div>
-        </Section>
-
-        <Section id="showcase" label="Portfolio highlights" variant="void">
-          <div className="showcase-grid">
-            <div className="showcase-item">1</div>
-            <div className="showcase-item">2</div>
-            <div className="showcase-item">3</div>
-          </div>
-        </Section>
-
-        <Section id="about-preview" label="About">
-          <h2 className="section-title">About</h2>
-          <p className="section-body">Placeholder — short intro/teaser, link to full About page.</p>
-        </Section>
-
-        <Section id="design-preview" label="Graphic design highlights" variant="void">
-          <h2 className="section-title">Design work</h2>
-          <p className="section-body">Placeholder — merch/graphic design showcase preview.</p>
-        </Section>
-
-        <Section id="hobbies-preview" label="Hobbies">
-          <h2 className="section-title">Outside of code</h2>
-          <p className="section-body">Placeholder — hobbies teaser.</p>
-        </Section>
-      </main>
-
-      <footer className="site-footer" id="contact">
-        <div className="footer-inner">
-          <p>Contact placeholder</p>
+      {/*----SHOWCASE PANELS: Illustrations or images----*/}
+      <WorldSection id="showcase" label="Showcase Section" variant="showcase">
+        <div className="showcaseGrid">
+          <div className="showcaseItem" />
+          <div className="showcaseItem" />
+          <div className="showcaseItem" />
         </div>
-      </footer>
-    </header>
+      </WorldSection>
+
+      {/*----ABOUT ME: Brief introduction----*/}
+      <WorldSection id="about" label="About Section" variant="default">
+        
+      </WorldSection>
+
+      {/*----Technicals: Tech stack and projects----*/}
+      <WorldSection id="technicals" label="Technicals Section" variant="default">
+        
+      </WorldSection>
     </>
   );
 }

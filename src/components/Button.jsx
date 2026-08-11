@@ -1,3 +1,5 @@
+import './Button.css';
+
 export default function Button({ children, onClick, href, type = 'button' }) {
   const className = 'btn glow-on-hover';
 

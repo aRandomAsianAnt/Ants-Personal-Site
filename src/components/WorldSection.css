@@ -1,0 +1,26 @@
+/*
+WORLD: Outermost section of contents relative to viewport.
+- Used for background, full-width or root-level sections.
+*/
+.worldSection {
+  width: 100%;
+  padding: var(--space64) 0;
+}
+
+.worldSection--default {
+  background: var(--bg);
+}
+
+.worldSection--void {
+  background: var(--bg-void);
+}
+
+/* 
+LOCAL: Inner section of contents relative to WORLD.
+- Used for positioning, margins, padding, constraints.
+*/
+.localSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space24);
+}

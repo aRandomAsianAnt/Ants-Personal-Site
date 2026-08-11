@@ -1,3 +1,5 @@
+import './WorldSection.css';
+
 export default function Section({ id, label, variant = 'default', children }) {
   return (
     <section
@@ -5,7 +7,7 @@ export default function Section({ id, label, variant = 'default', children }) {
       className={`section section-${variant}`}
       aria-label={label}
     >
-      <div className="section-inner">
+      <div className="localSection">
         {children}
       </div>
     </section>
