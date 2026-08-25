@@ -1,6 +1,6 @@
 import logo from '../assets/X_WHITE.png';
 import raysImage from '../assets/purple_shape_fx.png';
-import background from '../assets/antPurpleBG.png';
+import background from '../assets/antPurpleBG_convertedJPG.jpg';
 import MagicRings from '../effects/MagicRing.jsx';
 import './Hero.css';
 

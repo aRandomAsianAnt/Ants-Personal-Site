@@ -1,15 +1,8 @@
-//----ASSETS
-import logo from './assets/X_WHITE.png';
-import AQ from './assets/AQ_STROKE.png';
-import purpShape from './assets/purple_shape_fx.png';
-import bgImage from './assets/antPurpleBG.png'
-
 //----COMPONENTS
 import Button from './components/Button';
 import WorldSection from './components/WorldSection';
 import LoadingIntro from './components/LoadingIntro';
 import Hero from './components/Hero';
-import Stars from './components/StarField.jsx';
 
 //----PAGE LINKS VIA REACT ROUTER
 const pages = [
@@ -43,6 +36,7 @@ export default function App() {
         <div className="aura-layer-4" aria-hidden="true" />
         <div className="aura-layer-5" aria-hidden="true" />
         <div className="aura-layer-6" aria-hidden="true" />
+        <div className="aura-grain" aria-hidden="true" />
         <div className="aura-fade-top" aria-hidden="true" />
         <div className="aura-content">
           {/*----ABOUT ME: Brief introduction----*/}
@@ -62,7 +56,7 @@ export default function App() {
             label="Technicals Section"
             variant="void"
             heading="Technologies, Skills, Projects"
-            body="Placeholder — swap this for real project teasers."
+            body="6 7"
             /* image={someImage} */
             imageAlt="Project preview"
           />
@@ -73,7 +67,7 @@ export default function App() {
             label="Contact Section"
             variant="void"
             heading="Contact Me"
-            body="Placeholder — swap this for real project teasers."
+            body="Feel free to connect or reach out to me on these platforms!"
             /* image={someImage} */
             imageAlt="Project preview"
           />
