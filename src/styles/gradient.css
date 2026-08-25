@@ -1,0 +1,113 @@
+/* Aurora Borealis - Aura (nebula) */
+
+/* Base color on BODY - blend modes composite against this.
+   Uses --bg-void so it stays pixel-matched with Hero's .heroFade end color. */
+body {
+  background-color: var(--bg-void);
+}
+
+.aura-bg {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; /* height must be explicit - absolute layers add none */
+  /* NO background-color - layers blend against body */
+}
+
+/* Layer 1 - screen */
+.aura-layer-1 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(154deg, transparent 18%, rgba(40,12,80,0.06) 29%, rgba(119, 0, 255, 0.4) 36%, rgb(0, 0, 0) 42%, rgba(170,136,239,0.32) 48%, rgba(140,82,254,0.22) 55%, rgba(140,82,254,0.30) 62%, rgba(40,12,80,0.08) 68%, transparent 82%);
+  mix-blend-mode: screen;
+  filter: blur(85px); /* use 122px on desktop */
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 2 - screen */
+.aura-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(128deg, transparent 28%, rgba(40,12,80,0.06) 38%, rgba(30, 11, 45, 0.35) 43%, rgb(140,82,254) 48%, rgba(140,82,254,0.22) 52%, rgba(170,136,239,0.25) 57%, rgba(40,12,80,0.10) 62%, transparent 76%);
+  mix-blend-mode: screen;
+  filter: blur(75px); /* use 108px on desktop */
+  opacity: 0.9;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 3 - screen */
+.aura-layer-3 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 78% 20% at 51% 53%, rgba(170,136,239,0.24) 0%, rgba(240, 218, 247, 0.1) 45%, transparent 82%);
+  mix-blend-mode: screen;
+  filter: blur(70px); /* use 101px on desktop */
+  opacity: 0.9;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 4 - screen */
+.aura-layer-4 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 48% 9% at 52% 50%, rgba(222,198,255,0.14) 0%, rgba(140,82,254,0.06) 45%, transparent 80%);
+  mix-blend-mode: screen;
+  filter: blur(175px); /* use 252px on desktop */
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 5 - multiply */
+.aura-layer-5 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,2,15,0.90) 0%, rgba(14, 2, 16, 0.58) 28%, rgba(9,3,20,0.20) 55%, transparent 78%);
+  mix-blend-mode: multiply;
+  filter: blur(80px); /* use 115px on desktop */
+  opacity: 0.9;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 6 - screen */
+.aura-layer-6 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 28% at 72% 18%, rgba(89,62,151,0.10) 0%, rgba(57,44,100,0.04) 45%, transparent 82%);
+  mix-blend-mode: screen;
+  filter: blur(138px); /* use 198px on desktop */
+  opacity: 0.7;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Fade-in mask at the top of the aura section - eases the handoff from
+   Hero's .heroFade instead of the layers snapping straight to full brightness */
+.aura-fade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28vh;
+  background: linear-gradient(to bottom, var(--bg-void) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Content wrapper - keep it above the absolute layers, and spread
+   children across the full aura-bg height instead of stacking at the top */
+.aura-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

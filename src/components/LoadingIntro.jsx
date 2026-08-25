@@ -1,35 +1,40 @@
-// src/components/LoadingIntro.jsx
-import './LoadingIntro.css';
-import { useEffect, useState } from 'react';
+import logo from '../assets/X_WHITE.png';
 
-export default function LoadingIntro() {
-  const [phase, setPhase] = useState('covering'); // covering -> revealing -> done
+import { useEffect, useRef, useState } from "react";
+import "./LoadingIntro.css";
+
+const INTRO_DURATION = 3000;
+const REDUCED_MOTION_DURATION = 400;
+
+export default function LoadingIntro({ onComplete = () => {} }) {
+  const [isExiting, setIsExiting] = useState(false);
+  const completed = useRef(false);
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const alreadyShown = sessionStorage.getItem('introShown');
-
-    if (reduceMotion || alreadyShown) {
-      setPhase('done');
-      return;
-    }
-
-    sessionStorage.setItem('introShown', 'true');
-
-    // Timed to match the moment the X starts its "crack" expansion —
-    // see the animation-timeline note below for why 1080ms specifically.
-    const revealTimer = setTimeout(() => setPhase('revealing'), 1080);
-    const doneTimer = setTimeout(() => setPhase('done'), 1700);
-
-    return () => {
-      clearTimeout(revealTimer);
-      clearTimeout(doneTimer);
-    };
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = prefersReducedMotion ? REDUCED_MOTION_DURATION : INTRO_DURATION;
+    const timer = window.setTimeout(() => setIsExiting(true), duration);
+    return () => window.clearTimeout(timer);
   }, []);
 
-  if (phase === 'done') return null;
+  const finish = () => {
+    if (completed.current) return;
+    completed.current = true;
+    onComplete();
+  };
 
   return (
-    <div className={`loading-intro ${phase === 'revealing' ? 'revealing' : ''}`} aria-hidden="true" />
+    <section
+      className={`loading-intro${isExiting ? " loading-intro--exit" : ""}`}
+      aria-label="Loading portfolio"
+      onAnimationEnd={(event) => {
+        if (isExiting && event.target === event.currentTarget) finish();
+      }}
+    >
+      <div className="logo-shell">
+        <div className="logo-glow" />
+        <img src={logo} alt="" className="intro-logo" />
+      </div>
+    </section>
   );
 }

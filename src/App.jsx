@@ -8,6 +8,8 @@ import bgImage from './assets/antPurpleBG.png'
 import Button from './components/Button';
 import WorldSection from './components/WorldSection';
 import LoadingIntro from './components/LoadingIntro';
+import Hero from './components/Hero';
+import Stars from './components/StarField.jsx';
 
 //----PAGE LINKS VIA REACT ROUTER
 const pages = [
@@ -26,28 +28,57 @@ export default function App() {
       <LoadingIntro/>
 
       {/*----Hero section: Logo, tagline, first impressions----*/}
-      <WorldSection id="hero" label="Hero Section">
-
-      </WorldSection>
+      
+      <Hero/>
+      
 
       {/*----SHOWCASE PANELS: Illustrations or images----*/}
-      <WorldSection id="showcase" label="Showcase Section" variant="showcase">
-        <div className="showcaseGrid">
-          <div className="showcaseItem" />
-          <div className="showcaseItem" />
-          <div className="showcaseItem" />
+
+
+      {/*----AURA: ambient nebula glow behind the void sections----*/}
+      <div className="aura-bg">
+        <div className="aura-layer-1" aria-hidden="true" />
+        <div className="aura-layer-2" aria-hidden="true" />
+        <div className="aura-layer-3" aria-hidden="true" />
+        <div className="aura-layer-4" aria-hidden="true" />
+        <div className="aura-layer-5" aria-hidden="true" />
+        <div className="aura-layer-6" aria-hidden="true" />
+        <div className="aura-fade-top" aria-hidden="true" />
+        <div className="aura-content">
+          {/*----ABOUT ME: Brief introduction----*/}
+          <WorldSection
+            id="aboutme"
+            label="About me"
+            variant="void"
+            heading="About Me"
+            body="I am a Computer Engineering Student at Texas A&M University"
+            /* image={someImage} */
+            imageAlt="Project preview"
+          />
+
+          {/*----Technicals: Tech stack and projects----*/}
+          <WorldSection
+            id="technicals"
+            label="Technicals Section"
+            variant="void"
+            heading="Technologies, Skills, Projects"
+            body="Placeholder — swap this for real project teasers."
+            /* image={someImage} */
+            imageAlt="Project preview"
+          />
+
+          {/*----Contacts: LinkedIn, Gmail, etc----*/}
+          <WorldSection
+            id="contacts"
+            label="Contact Section"
+            variant="void"
+            heading="Contact Me"
+            body="Placeholder — swap this for real project teasers."
+            /* image={someImage} */
+            imageAlt="Project preview"
+          />
         </div>
-      </WorldSection>
-
-      {/*----ABOUT ME: Brief introduction----*/}
-      <WorldSection id="about" label="About Section" variant="default">
-        
-      </WorldSection>
-
-      {/*----Technicals: Tech stack and projects----*/}
-      <WorldSection id="technicals" label="Technicals Section" variant="default">
-        
-      </WorldSection>
+      </div>
     </>
   );
 }

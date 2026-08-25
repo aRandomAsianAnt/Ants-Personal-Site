@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
 /*
 BASE STYLESHEET
 */
 :root {
   /* Base brand colors */
   --bg: rgb(20, 20, 20);
-  --bg-void: rgb(0, 0, 0);
+  --bg-void: #100e0b;
+  --bg-nebula: #1c0836;
   --text: rgb(237, 237, 240);
   --text-dim: var(--accent);
 
   /* Accent color and variations */
   --accent: rgb(140, 82, 254);
-  --accent-soft: rgb(186, 166, 226);
+  --accent-soft: rgb(170, 136, 239);
   --accent-glow: rgb(140, 82, 254);
 
   /* Spacing scale */
@@ -29,7 +32,9 @@ html,body {
   min-height: 100vh;
   overflow-x: hidden;
   color: var(--text);
+  z-index: 0;
   position: relative; /* gives z-index on children a stacking context to sit against */
+  font-family: 'Cinzel', serif;
 }
 
 /*
@@ -130,23 +135,6 @@ button:focus-visible {
   filter: drop-shadow(0 0 12px var(--accent-glow));
 }
 
-@keyframes ignite {
-  0% {
-    opacity: 0;
-    transform: scale(0.1);
-    filter: drop-shadow(0 0 0px rgba(140, 82, 254, 0));
-  }
-  45% {
-    opacity: 1;
-    transform: scale(1.25);
-    filter: drop-shadow(0 0 46px var(--accent-glow));
-  }
-  100% {
-    opacity: 1;
-    transform: scale(0.8);
-    filter: drop-shadow(0 0 26px var(--accent-soft));
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .nav-logo {
@@ -169,13 +157,6 @@ button:focus-visible {
 ASSETS: Images, icons, media assets styling
 */
 
-.start-logo {
-  width: clamp(120px, 60vw, 600px);
-  height: auto;
-  opacity: 0;
-  animation: ignite 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
 .nav-logo {
   width: 40px;
   height: 40px;
@@ -183,11 +164,3 @@ ASSETS: Images, icons, media assets styling
   animation: nav-logo-pulse 3s ease-in-out infinite;
 }
 
-.purpleRay {
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  right: 0;
-  mix-blend-mode: screen;
-  
-}
