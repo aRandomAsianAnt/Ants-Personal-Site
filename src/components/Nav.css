@@ -1,5 +1,6 @@
 /* Floating pill nav - frosted purple glass, AQ logo dead-center,
-   sits above everything except the loading intro (z-index: 100) */
+   sits above everything except the loading intro (z-index: 100) 
+*/
 .floating-nav {
   position: fixed;
   top: 24px;
