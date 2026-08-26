@@ -92,15 +92,18 @@ TYPING TEXT STYLING AND ANIMATION
   display: grid;
   place-items: center; /* Centers the text container */
   z-index: 6;
+  max-width: 92vw;
 }
 
 .typingText {
   text-decoration-color: #ffffff;
   font-family: 'Courier New', Courier, monospace; /* Critical: Ensure consistent character width */
-  font-size: 2rem;
+  /* Scales with viewport so 38ch never overflows narrow screens, capping at the original 2rem */
+  font-size: clamp(0.8rem, 3.8vw, 2rem);
   white-space: nowrap;    /* Prevents the text from wrapping to a new line */
   overflow: hidden;       /* Ensures hidden characters stay hidden until revealed */
   border-right: 3px solid #ffffff; /* Acts as the blinking cursor */
+  max-width: 100%;
 
   /* The layout width matches the exact character count (38 characters) */
   width: 38ch;
