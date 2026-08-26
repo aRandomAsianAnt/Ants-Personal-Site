@@ -1,0 +1,92 @@
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space40);
+}
+
+.contactForm {
+  flex: 1 1 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space16);
+}
+
+.contactField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.contactField input,
+.contactField textarea {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(221, 196, 255, 0.16);
+  border-radius: 12px;
+  padding: 10px 14px;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contactField input:focus,
+.contactField textarea:focus {
+  outline: none;
+  border-color: var(--accent-soft);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.contactField input[aria-invalid='true'],
+.contactField textarea[aria-invalid='true'] {
+  border-color: #e5484d;
+}
+
+.contactError {
+  font-size: 0.75rem;
+  color: #ff8a8a;
+}
+
+.contactSubmitRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space16);
+  flex-wrap: wrap;
+}
+
+.contactStatus {
+  font-size: 0.8rem;
+  color: var(--accent-soft);
+}
+
+.contactSocials {
+  flex: 0 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space16);
+}
+
+.contactSocials .btn {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .contactSocials {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contactSocials .btn {
+    width: auto;
+  }
+}

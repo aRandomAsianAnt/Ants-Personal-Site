@@ -9,7 +9,10 @@ const FACTS = [
   "I'm a lefty full-western in tennis!",
   "I sometimes sleep to metal or EDM...",
   "Did I mention I design clothing and merchandise for university orgs and other affiliates",
-  "All of the color accents and logos/shapes are my personal creative branding!"
+  "All of the color accents and logos/shapes are my personal creative branding!",
+  "My favorite game is Team Fortress 2",
+  "X marks the spot...",
+  ""
 ];
 
 function pickFact(exclude) {

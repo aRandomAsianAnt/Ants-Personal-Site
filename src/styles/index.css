@@ -37,6 +37,10 @@ html,body {
   font-family: 'Cinzel', serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*
 STRUCTURE STYLING: Layout and positioning of major sections
 */

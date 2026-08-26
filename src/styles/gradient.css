@@ -97,8 +97,11 @@ body {
   background-image: url("../assets/grainResized.jpg");
   width: 100vw;
   background-repeat: repeat;
-  mix-blend-mode: overlay;
-  opacity: 0.2;
+  /* overlay/soft-light both collapse to invisible on near-black bases (their math
+     scales toward zero as the base darkens) - screen keeps grain visible at every
+     luminance, including the near-black gradient at the bottom of the aura */
+  mix-blend-mode: screen;
+  opacity: 0.08;
   pointer-events: none;
 }
 

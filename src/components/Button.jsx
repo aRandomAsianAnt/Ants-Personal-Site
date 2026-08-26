@@ -1,11 +1,12 @@
 import './Button.css';
 
-export default function Button({ children, onClick, href, type = 'button' }) {
+export default function Button({ children, onClick, href, type = 'button', target }) {
   const className = 'btn glow-on-hover';
 
   if (href) {
+    const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
     return (
-      <a href={href} className={className}>
+      <a href={href} className={className} target={target} rel={rel}>
         {children}
       </a>
     );

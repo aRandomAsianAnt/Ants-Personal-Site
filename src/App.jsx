@@ -7,16 +7,19 @@ import LoadingIntro from './components/LoadingIntro';
 import Hero from './components/Hero';
 import Nav from './components/Nav';
 import FunXFact from './components/FunXFact';
+import Contact from './components/Contact';
 
 //----PAGE LINKS VIA REACT ROUTER
 const pages = [
   { label: 'Academics', href: '/academics' },
-  { label: 'Education', href: '/education' },
-  { label: 'Resume', href: '/resume' },
+  { label: 'Experiences', href: '/experiences' },
   { label: 'Hobbies', href: '/hobbies' },
   { label: 'Graphics', href: '/design' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Contact', href: '/#contacts' },
 ];
+
+//----ASSETS
+import me from './assets/me.jpg';
 
 export default function App() {
   const [introDone, setIntroDone] = useState(false);
@@ -30,7 +33,7 @@ export default function App() {
 
   return (
     <>
-      {/*----LOADING SCENE: Cinematic reveal effect----*/}
+      {/*----LOADING X-Screen----*/}
       <LoadingIntro onComplete={() => setIntroDone(true)} />
 
       {/*----FLOATING NAV: hidden until the intro finishes----*/}
@@ -38,12 +41,7 @@ export default function App() {
       {introDone && <FunXFact />}
 
       {/*----Hero section: Logo, tagline, first impressions----*/}
-
       <Hero/>
-      
-
-      {/*----SHOWCASE PANELS: Illustrations or images----*/}
-
 
       {/*----AURA: ambient nebula glow behind the void sections----*/}
       <div className="aura-bg">
@@ -63,7 +61,7 @@ export default function App() {
             variant="void"
             heading="About Me"
             body="I am a Computer Engineering Student at Texas A&M University"
-            /* image={someImage} */
+            image={me.jpg}
             imageAlt="Project preview"
           />
 
@@ -79,15 +77,15 @@ export default function App() {
           />
 
           {/*----Contacts: LinkedIn, Gmail, etc----*/}
-          <WorldSection
-            id="contacts"
-            label="Contact Section"
-            variant="void"
-            heading="Contact Me"
-            body="Feel free to connect or reach out to me on these platforms!"
-            /* image={someImage} */
-            imageAlt="Project preview"
-          />
+          <WorldSection id="contacts" label="Contact Section" variant="void">
+            <div className="sectionPlaceholderText">
+              <h2 className="section-title">Contact Me</h2>
+              <p className="section-body">
+                Feel free to connect or reach out to me on these platforms!
+              </p>
+            </div>
+            <Contact />
+          </WorldSection>
         </div>
       </div>
     </>
