@@ -79,3 +79,44 @@
     filter: drop-shadow(0 0 26px var(--accent-soft));
   }
 }
+
+/*
+TYPING TEXT STYLING AND ANIMATION
+*/
+
+.typingContainer {
+  position: absolute;
+  left: 50%;
+  bottom: 8vh;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center; /* Centers the text container */
+  z-index: 6;
+}
+
+.typingText {
+  text-decoration-color: #ffffff;
+  font-family: 'Courier New', Courier, monospace; /* Critical: Ensure consistent character width */
+  font-size: 2rem;
+  white-space: nowrap;    /* Prevents the text from wrapping to a new line */
+  overflow: hidden;       /* Ensures hidden characters stay hidden until revealed */
+  border-right: 3px solid #ffffff; /* Acts as the blinking cursor */
+
+  /* The layout width matches the exact character count (38 characters) */
+  width: 38ch;
+
+  /* Combined animations: typing reveal and cursor blink */
+  animation:
+    typing 3s steps(38) forwards,
+    blink .5s step-end infinite alternate;
+}
+
+/* Keyframes for revealing characters one by one */
+@keyframes typing {
+  from { width: 0; }
+}
+
+/* Keyframes for the blinking cursor */
+@keyframes blink {
+  50% { border-color: transparent; }
+}

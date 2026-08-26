@@ -1,8 +1,12 @@
+import { useEffect, useState } from 'react';
+
 //----COMPONENTS
 import Button from './components/Button';
 import WorldSection from './components/WorldSection';
 import LoadingIntro from './components/LoadingIntro';
 import Hero from './components/Hero';
+import Nav from './components/Nav';
+import FunXFact from './components/FunXFact';
 
 //----PAGE LINKS VIA REACT ROUTER
 const pages = [
@@ -15,13 +19,26 @@ const pages = [
 ];
 
 export default function App() {
+  const [introDone, setIntroDone] = useState(false);
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       {/*----LOADING SCENE: Cinematic reveal effect----*/}
-      <LoadingIntro/>
+      <LoadingIntro onComplete={() => setIntroDone(true)} />
+
+      {/*----FLOATING NAV: hidden until the intro finishes----*/}
+      {introDone && <Nav pages={pages} />}
+      {introDone && <FunXFact />}
 
       {/*----Hero section: Logo, tagline, first impressions----*/}
-      
+
       <Hero/>
       
 

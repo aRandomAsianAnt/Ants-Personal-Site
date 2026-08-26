@@ -3,8 +3,8 @@ import logo from '../assets/X_WHITE.png';
 import { useEffect, useRef, useState } from "react";
 import "./LoadingIntro.css";
 
-const INTRO_DURATION = 3000;
-const REDUCED_MOTION_DURATION = 400;
+const INTRO_DURATION = 1000;
+const REDUCED_MOTION_DURATION = 1500;
 
 export default function LoadingIntro({ onComplete = () => {} }) {
   const [isExiting, setIsExiting] = useState(false);

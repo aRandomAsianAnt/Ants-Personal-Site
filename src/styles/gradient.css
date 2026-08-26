@@ -94,7 +94,7 @@ body {
 .aura-grain {
   position: absolute;
   inset: 0;
-  background-image: url("../assets/grain1.jpg");
+  background-image: url("../assets/grainResized.jpg");
   width: 100vw;
   background-repeat: repeat;
   mix-blend-mode: overlay;
